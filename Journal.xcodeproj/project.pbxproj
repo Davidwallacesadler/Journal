@@ -54,14 +54,54 @@
 		634F8085225157DB0026CE39 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
-				634F8086225157DB0026CE39 /* AppDelegate.swift */,
-				634F8088225157DB0026CE39 /* ViewController.swift */,
-				634F808A225157DB0026CE39 /* Main.storyboard */,
-				634F808D225157E00026CE39 /* Assets.xcassets */,
-				634F808F225157E00026CE39 /* LaunchScreen.storyboard */,
+				634F809A2251582A0026CE39 /* ModelControllers */,
+				634F8098225157EC0026CE39 /* Models */,
+				634F809B225158440026CE39 /* Views */,
+				634F80992251580E0026CE39 /* ViewControllers */,
+				634F809C2251586D0026CE39 /* Resources */,
 				634F8092225157E00026CE39 /* Info.plist */,
 			);
 			path = Journal;
+			sourceTree = "<group>";
+		};
+		634F8098225157EC0026CE39 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		634F80992251580E0026CE39 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				634F8088225157DB0026CE39 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		634F809A2251582A0026CE39 /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		634F809B225158440026CE39 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				634F808A225157DB0026CE39 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		634F809C2251586D0026CE39 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				634F8086225157DB0026CE39 /* AppDelegate.swift */,
+				634F808F225157E00026CE39 /* LaunchScreen.storyboard */,
+				634F808D225157E00026CE39 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
