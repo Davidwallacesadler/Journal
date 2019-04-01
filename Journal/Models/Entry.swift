@@ -8,18 +8,24 @@
 
 import Foundation
 
-class Entry: Equatable {
+class Entry: Equatable, Codable {
+    
     // MARK: - Protocol Method:
+    
     static func == (lhs: Entry, rhs: Entry) -> Bool {
-        return lhs.timeStamp == rhs.timeStamp && lhs.title == rhs.title && lhs.text == rhs.text
+        return lhs.timeStamp == rhs.timeStamp &&
+               lhs.title == rhs.title &&
+               lhs.text == rhs.text
     }
     
     // MARK: - Internal Properties
+    
     var timeStamp: Date = Date.init()
     var title: String
     var text: String
     
     // MARK: - Initializer:
+    
     init(title: String, text: String) {
         self.title = title
         self.text = text

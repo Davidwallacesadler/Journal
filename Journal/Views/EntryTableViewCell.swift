@@ -9,11 +9,12 @@
 import UIKit
 
 class EntryTableViewCell: UITableViewCell {
+    
     // MARK: - Outlets:
+    
     @IBOutlet weak var entryLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
 }
