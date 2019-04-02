@@ -19,29 +19,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryTableViewCell" id="SDE-iA-QkQ" customClass="EntryTableViewCell" customModule="Journal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryTableViewCell" rowHeight="75" id="SDE-iA-QkQ" customClass="EntryTableViewCell" customModule="Journal" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SDE-iA-QkQ" id="tBw-Qr-zY0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlz-SY-PYu" userLabel="entryLabel">
-                                            <rect key="frame" x="16" y="11" width="343" height="21.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlz-SY-PYu" userLabel="entryLabel">
+                                            <rect key="frame" x="16" y="10.5" width="343" height="23.5"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                             <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tzy-MH-8pk">
+                                            <rect key="frame" x="16" y="41.5" width="343" height="21.5"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="hlz-SY-PYu" firstAttribute="centerY" secondItem="tBw-Qr-zY0" secondAttribute="centerY" id="5G7-ZT-aR6"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="hlz-SY-PYu" secondAttribute="bottom" constant="0.5" id="7ZX-mZ-yY4"/>
-                                        <constraint firstItem="hlz-SY-PYu" firstAttribute="top" secondItem="tBw-Qr-zY0" secondAttribute="topMargin" id="AVS-Fx-oxa"/>
+                                        <constraint firstItem="hlz-SY-PYu" firstAttribute="centerY" secondItem="tBw-Qr-zY0" secondAttribute="centerY" constant="-15" id="5G7-ZT-aR6"/>
+                                        <constraint firstItem="Tzy-MH-8pk" firstAttribute="centerY" secondItem="tBw-Qr-zY0" secondAttribute="centerY" constant="15" id="5Qr-et-yaY"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Tzy-MH-8pk" secondAttribute="trailing" id="OUT-Sf-3lx"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="hlz-SY-PYu" secondAttribute="trailing" id="fpM-A8-vPJ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Tzy-MH-8pk" secondAttribute="bottom" constant="1" id="jaF-Bq-hDc"/>
                                         <constraint firstItem="hlz-SY-PYu" firstAttribute="leading" secondItem="tBw-Qr-zY0" secondAttribute="leadingMargin" id="nCM-aU-eBC"/>
+                                        <constraint firstItem="Tzy-MH-8pk" firstAttribute="leading" secondItem="tBw-Qr-zY0" secondAttribute="leadingMargin" id="rff-gQ-FEZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="dateLabel" destination="Tzy-MH-8pk" id="ATa-cU-3Pc"/>
                                     <outlet property="entryLabel" destination="hlz-SY-PYu" id="FgI-v3-v6X"/>
                                     <segue destination="Cul-r1-2VC" kind="show" identifier="toShowEntry" id="Xef-Mv-F3c"/>
                                 </connections>
@@ -64,7 +73,7 @@
             </objects>
             <point key="canvasLocation" x="396" y="132"/>
         </scene>
-        <!--New Entry-->
+        <!--Entry-->
         <scene sceneID="BSZ-sm-GE4">
             <objects>
                 <viewController id="Cul-r1-2VC" customClass="EntryDetailViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,25 +84,31 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UhO-SF-d9U">
                                 <rect key="frame" x="50" y="114" width="275" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your text here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4r8-Za-rRQ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4r8-Za-rRQ">
                                 <rect key="frame" x="50" y="169" width="275" height="348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDZ-J9-CtF">
-                                <rect key="frame" x="164" y="567" width="47" height="36"/>
+                                <rect key="frame" x="137.5" y="567" width="100" height="36"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="DR4-sh-dCL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Clear"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.92352740990000004" green="0.92352740990000004" blue="0.92352740990000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clearButtonTapped:" destination="Cul-r1-2VC" eventType="touchUpInside" id="Wdr-Hw-djy"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92352740988513538" green="0.92352740988513538" blue="0.92352740988513538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4r8-Za-rRQ" firstAttribute="leading" secondItem="DHV-CZ-AHB" secondAttribute="leading" constant="50" id="KmI-LV-9DU"/>
                             <constraint firstItem="UhO-SF-d9U" firstAttribute="leading" secondItem="DHV-CZ-AHB" secondAttribute="leading" constant="50" id="OWl-US-eBp"/>
@@ -109,7 +124,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DHV-CZ-AHB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Entry" id="Mu0-IY-etW">
+                    <navigationItem key="navigationItem" title="Entry" id="Mu0-IY-etW">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Yn6-Yx-tEL">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="Cul-r1-2VC" id="LJD-3E-jnw"/>

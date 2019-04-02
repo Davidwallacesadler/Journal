@@ -26,13 +26,16 @@ class EntryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "EntryTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? EntryTableViewCell else {
-            fatalError("ERROR: The selected cell is not an instance of EntryTableViewCell")
+            print("ERROR: The selected cell is not an instance of EntryTableViewCell")
+            return UITableViewCell()
         }
-        //Without Custom TableviewCell:
+        //FOR REFERENCE: Without Custom TableviewCell:
         // let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         // cell.textLabel?.text = entry.title
         let entry = EntryController.shared.entries[indexPath.row]
+        let timeOfEntry = DateFormatHelper.format(date: entry.timeStamp)
         cell.entryLabel.text = entry.title
+        cell.dateLabel.text = timeOfEntry
         return cell
     }
     
