@@ -19,10 +19,12 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Internal Properties:
     
-    var optionalEntry: Entry?
+    var entry: Entry?
  
     // MARK: - Outlets:
     
+    @IBOutlet weak var BodyTextLabel: UILabel!
+    @IBOutlet weak var EntryTitleLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextView: UITextView!
     
@@ -35,7 +37,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let title = titleTextField.text, let text = bodyTextView.text else { return }
-        if let entry = self.optionalEntry {
+        if let entry = self.entry {
             EntryController.shared.update(entry: entry, newTitle: title, newText: text)
         } else {
             EntryController.shared.addEntryWith(title: title, text: text)
@@ -53,7 +55,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Methods:
     
     func updateViews() {
-            titleTextField.text = optionalEntry?.title
-            bodyTextView.text = optionalEntry?.text
+            titleTextField.text = entry?.title
+            bodyTextView.text = entry?.text
     }
 }
