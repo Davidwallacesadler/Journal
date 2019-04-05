@@ -15,22 +15,21 @@ class EntryTableViewController: UITableViewController {
     var journal: Journal?
     
     // MARK: - View Lifecycle
-    
-    // ??? I GRABBED THIS FROM A RANDOM SOURCE -- WHAT DOES THIS DO? DO I NEED IT HERE?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
+        updateViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
     }
     
     // MARK: - TableView dataSource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return EntryController.shared.entries.count
         guard let entryCollectionCount = journal?.entryCollection.count else { return 0 }
         return entryCollectionCount
     }
@@ -49,10 +48,6 @@ class EntryTableViewController: UITableViewController {
             cell.dateLabel.text = timeOfEntry
             return cell
         }
-       //let entry = EntryController.shared.entries[indexPath.row]
-       //let timeOfEntry = DateFormatHelper.format(date: entry.timeStamp)
-       //cell.entryLabel.text = entry.title
-       //cell.dateLabel.text = timeOfEntry
         return cell
     }
     
@@ -64,9 +59,6 @@ class EntryTableViewController: UITableViewController {
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 
             }
-            //let entry = EntryController.shared.entries[indexPath.row]
-            //EntryController.shared.remove(entry: entry)
-            //tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
@@ -77,13 +69,21 @@ class EntryTableViewController: UITableViewController {
         guard let detailViewController = segue.destination as? EntryDetailViewController,
             let index = tableView.indexPathForSelectedRow?.row,
             let argJournal = journal else { return }
+            
             detailViewController.entry = argJournal.entryCollection[index]
             detailViewController.journal = argJournal
-            //detailViewController.entry = EntryController.shared.entries[index]
+            
         } else if segue.identifier == "toAddEntry" {
             guard let detailViewController = segue.destination as? EntryDetailViewController,
                 let argJournal = journal else { return }
                 detailViewController.journal = argJournal
         }
     }
+    
+    // MARK: - Methods:
+    
+    func updateViews() {
+        self.title = journal?.name
+    }
+    
 }

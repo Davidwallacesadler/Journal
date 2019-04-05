@@ -14,6 +14,8 @@ class JournalPopupViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.journalTitleTextField.delegate = self
+        self.saveButton.layer.cornerRadius = 10
     }
     
     // MARK: - Outlets
@@ -24,7 +26,7 @@ class JournalPopupViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Actions
     
-    // TODO: - Notify user to pass in a title - "Please enter a journal title, it is required" -- Or figure out how to make it optional.
+    // TODO: - Notify user to pass in a title - "Please enter a journal title, it is required".
     
     // TODO: - Enable Dismiss on tapping anywhere outside the popUpView.
     
@@ -38,10 +40,8 @@ class JournalPopupViewController: UIViewController, UITextFieldDelegate {
     
     // Mark: - Delegate Methods
     
-    // TODO: - Fix return issue - keyboard does not dismiss when return is tapped.
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+        self.view.endEditing(true)
+        return false
     }
 }

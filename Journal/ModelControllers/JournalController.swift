@@ -37,7 +37,7 @@ class JournalController {
         saveToPersistentStorage()
     }
     
-    // TODO: - add func updatewith(journalToModify Journal, newtitle: String)  ???
+    // TODO: - add func updatewith(journalToModify Journal, newtitle: String)
     
     func remove(journal: Journal) {
         guard let index = journals.lastIndex(of: journal) else { return }
@@ -52,8 +52,7 @@ class JournalController {
         saveToPersistentStorage()
     }
     
-    // MARK: - Persistence Methods  ???
-    // Need to persist modifications
+    // MARK: - Persistence Methods
     
     private func fileURL() -> URL {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -84,5 +83,4 @@ class JournalController {
             return
         }
     }
-    // TODO: - Put persistence methods in a file and call a static shared reference, or extend something  ???
 }

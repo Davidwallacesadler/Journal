@@ -15,7 +15,10 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        self.clearButton.layer.cornerRadius = 10
     }
+    
+    // TODOL: - Update nav bar title with entry title
 
     // MARK: Internal Properties:
     
@@ -24,6 +27,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
  
     // MARK: - Outlets:
     
+    @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var BodyTextLabel: UILabel!
     @IBOutlet weak var EntryTitleLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
@@ -58,5 +62,6 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     func updateViews() {
             titleTextField.text = entry?.title
             bodyTextView.text = entry?.text
+            self.title = entry?.title
     }
 }
