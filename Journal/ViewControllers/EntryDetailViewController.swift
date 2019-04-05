@@ -20,6 +20,7 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     // MARK: Internal Properties:
     
     var entry: Entry?
+    var journal: Journal?
  
     // MARK: - Outlets:
     
@@ -36,11 +37,11 @@ class EntryDetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let title = titleTextField.text, let text = bodyTextView.text else { return }
+        guard let title = titleTextField.text, let text = bodyTextView.text, let selectedJournal = journal else { return }
         if let entry = self.entry {
             EntryController.shared.update(entry: entry, newTitle: title, newText: text)
         } else {
-            EntryController.shared.addEntryWith(title: title, text: text)
+            EntryController.shared.addEntryWith(journal: selectedJournal, title: title, text: text)
         }
         self.navigationController?.popViewController(animated: true)
     }

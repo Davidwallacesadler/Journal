@@ -8,9 +8,9 @@
 
 import Foundation
 
-class Journal : Equatable {
+class Journal : Equatable, Codable {
     
-    // MARK: Protocol methods
+    // MARK: Protocol Stub:
     
     static func == (lhs: Journal, rhs: Journal) -> Bool {
         return lhs.name == rhs.name &&

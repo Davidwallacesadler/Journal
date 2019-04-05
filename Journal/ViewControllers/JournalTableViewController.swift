@@ -10,8 +10,15 @@ import UIKit
 
 class JournalTableViewController: UITableViewController {
     
+    // TODO: - Fix TableView -- its not updating with new elements.
+    
     // MARK: - View Lifecycle
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.reloadData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -25,7 +32,6 @@ class JournalTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "journalTableViewCell", for: indexPath)
         let journal = JournalController.shared.journals[indexPath.row]
         cell.textLabel?.text = journal.name

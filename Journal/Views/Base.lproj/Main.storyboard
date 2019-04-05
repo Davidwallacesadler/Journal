@@ -39,7 +39,7 @@
                     <navigationItem key="navigationItem" title="Journals" id="heM-bD-gXf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9HQ-Vd-doq">
                             <connections>
-                                <segue destination="wSv-bF-TvH" kind="presentation" modalPresentationStyle="overCurrentContext" id="Iq8-6T-Z1d"/>
+                                <segue destination="wSv-bF-TvH" kind="show" id="i9c-0z-tgc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -197,7 +197,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VX8-PR-8JC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="914"/>
+            <point key="canvasLocation" x="-380" y="875"/>
         </scene>
         <!--Entry-->
         <scene sceneID="BSZ-sm-GE4">
@@ -296,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pta-ZI-hwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253.5999999999999" y="912.5937031484259"/>
+            <point key="canvasLocation" x="430" y="875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1An-MM-q71">

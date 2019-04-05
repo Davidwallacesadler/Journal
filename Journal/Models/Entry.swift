@@ -10,7 +10,7 @@ import Foundation
 
 class Entry: Equatable, Codable {
     
-    // MARK: - Protocol Method:
+    // MARK: - Protocol Stub:
     
     static func == (lhs: Entry, rhs: Entry) -> Bool {
         return lhs.timeStamp == rhs.timeStamp &&

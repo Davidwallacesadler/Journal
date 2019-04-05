@@ -10,15 +10,20 @@ import UIKit
 
 class EntryTableViewController: UITableViewController {
     
-    // WANT TO PASS IN AN ENTRY COLLECTION INTO THIS VIEW CONTROLLER
     // MARK: - Internal Properties:
     
     var journal: Journal?
     
     // MARK: - View Lifecycle
     
+    // ??? I GRABBED THIS FROM A RANDOM SOURCE -- WHAT DOES THIS DO? DO I NEED IT HERE?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.reloadData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         tableView.reloadData()
     }
     
@@ -36,7 +41,7 @@ class EntryTableViewController: UITableViewController {
             print("ERROR: The selected cell is not an instance of EntryTableViewCell")
             return UITableViewCell()
         }
-        
+
         if let argJournal = journal {
             let entry = argJournal.entryCollection[indexPath.row]
             let timeOfEntry = DateFormatHelper.format(date: entry.timeStamp)
@@ -46,9 +51,8 @@ class EntryTableViewController: UITableViewController {
         }
        //let entry = EntryController.shared.entries[indexPath.row]
        //let timeOfEntry = DateFormatHelper.format(date: entry.timeStamp)
-        
-        //cell.entryLabel.text = entry.title
-        //cell.dateLabel.text = timeOfEntry
+       //cell.entryLabel.text = entry.title
+       //cell.dateLabel.text = timeOfEntry
         return cell
     }
     
@@ -74,7 +78,12 @@ class EntryTableViewController: UITableViewController {
             let index = tableView.indexPathForSelectedRow?.row,
             let argJournal = journal else { return }
             detailViewController.entry = argJournal.entryCollection[index]
+            detailViewController.journal = argJournal
             //detailViewController.entry = EntryController.shared.entries[index]
+        } else if segue.identifier == "toAddEntry" {
+            guard let detailViewController = segue.destination as? EntryDetailViewController,
+                let argJournal = journal else { return }
+                detailViewController.journal = argJournal
         }
     }
 }
